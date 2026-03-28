@@ -1,6 +1,6 @@
 import sys
 import os
-from app.tasks import add_task, get_tasks
+from app.tasks import add_task, get_tasks, delete_task
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../app")))
 
@@ -14,4 +14,8 @@ def test_multiple_tasks():
     tasks = get_tasks()
     assert "Learn CI" in tasks
     assert "Learn DevOps" in tasks
-    
+
+def test_delete_task():
+    add_task("Learn Kubernetes")
+    delete_task("Learn Kubernetes")
+    assert "Learn Kubernetes" not in get_tasks()

@@ -5,3 +5,6 @@ def add_task(task):
 
 def get_tasks():
     return tasks
+
+def delete_task(task):
+    tasks.remove(task)
